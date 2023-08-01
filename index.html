@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Javascript test</title>
+</head>
+<body>
+  <script>
+
+    function getComputerChoice(){
+        const moves = ["rock", "paper", "scissors"];
+        const randomIndex = Math.floor(Math.random()*moves.length);
+        return moves[randomIndex];
+    }
+
+    function playerSelection() {
+    const moves = ["rock", "paper", "scissors"];
+    let userInput;
+    let userInputAsLower;
+
+    do {
+        userInput = window.prompt("Please choose rock, paper or scissors: ");
+        userInputAsLower = userInput.toLowerCase();
+    } while (!moves.includes(userInputAsLower));
+
+    return userInputAsLower;
+}
+         
+    function playOneRound(userInput, computerInput){
+        let outcome; 
+        if (userInput === "rock"){
+            if (computerInput === "rock"){
+                console.log("It's a draw! The computer chose rock!")
+                outcome = "draw"
+            } else if (computerInput === "paper"){
+                console.log("You lose! The computer chose paper!")
+                outcome = "lose"
+            } else if (computerInput === "scissors"){
+                console.log("You win! The Computer chose rock!")
+                outcome = "win"
+            }
+        }
+
+        if (userInput === "paper"){
+            if (computerInput === "paper"){
+                console.log("It's a draw! The computer chose paper!")
+                outcome = "draw"
+            } else if (computerInput === "rock"){
+                console.log("You win! The computer chose rock!")
+                outcome = "win"
+            } else if (computerInput === "scissors"){
+                console.log("You lose! The Computer chose scissors!")
+                outcome = "lose"
+
+            }
+        }
+
+        if (userInput === "scissors"){
+            if (computerInput === "scissors"){
+                console.log("It's a draw! The computer chose scissors!")
+                outcome = "draw"
+            } else if (computerInput === "rock"){
+                console.log("You lose! The computer chose rock!")
+                outcome = "lose"
+            } else if (computerInput === "paper"){
+                console.log("You win! The Computer chose paper!")
+                outcome = "win"
+            }
+        }
+
+        return outcome
+
+
+    }
+
+    function playGame(){
+        let winsComputer = 0;
+        let winsPlayer = 0;
+        console.log("Lets play a best of three!")
+        while (winsComputer < 3 && winsPlayer < 3){
+            let outcome = playOneRound(playerSelection(), getComputerChoice())
+            if (outcome === "win"){
+                winsPlayer += 1
+                console.log("You have won: "+winsPlayer+" times and the computer has won "+ winsComputer + " times")
+            } else if (outcome === "draw"){
+                console.log("You have won: "+winsPlayer+" times and the computer has won "+ winsComputer + " times")
+            } else if (outcome === "lose"){
+                winsComputer += 1
+                console.log("You have won: "+winsPlayer+" times and the computer has won "+ winsComputer + " times")
+            }
+        }
+        console.log("Game over! You have won: "+winsPlayer+" times and the computer has won "+ winsComputer + " times")
+    }
+
+    playGame()
+
+    // const playerSelection = "rock";
+    // const computerSelection = getComputerChoice();
+    // console.log(playRound(playerSelection, computerSelection))
+  </script>
+</body>
+</html>
