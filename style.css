@@ -1,0 +1,64 @@
+.container {
+    width: 100%; /* This will make sure .container spans the full width */
+    display: flex;
+    justify-content: center;
+    gap: 20px; 
+}
+
+.big-container {
+    width: 100%; /* This will make sure .big-container spans the full width */
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* This will center its children horizontally */
+}
+
+.container button {
+    background: peachpuff;
+    border: none;  /* Removing the border to use shadow for depth */
+    height: 250px;
+    flex: 1;
+    border-radius: 12px;  /* Rounded corners */
+    box-shadow: 8px 8px 20px rgba(0, 0, 0, 0.2);  /* Subtle shadow for depth */
+    font-size: 18px;  /* Increase font size */
+    font-weight: bold;  /* Bold font */
+    cursor: pointer;  /* Change cursor to hand pointer on hover */
+    transition: background-color 0.3s, box-shadow 0.3s;  /* Smooth transition effects */
+    outline: none;  /* Remove the default focus outline */
+}
+
+/* Hover effect */
+.container button:hover {
+    background-color: #FFDAB9;  /* Slightly darker peachpuff */
+    box-shadow: 1px 1px 6px rgba(0, 0, 0, 0.2);  /* Reduced shadow on hover */
+}
+
+/* Active (pressed) effect */
+.container button:active {
+    background-color: #FFCBA4;  /* Even darker peachpuff for a pressed effect */
+    box-shadow: 1px 1px 6px rgba(0, 0, 0, 0.2);  /* Minimal shadow when active */
+}
+
+
+.score-container{
+    margin-top: 100px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 350px;       /* Example width */
+    height: 350px;      /* Example height */
+    border-radius: 12px;
+    padding: 20px;
+    background-color: #FFCBA4;
+}
+
+
+.container button {
+    font-family: 'Roboto', sans-serif; /* This will use the Roboto font, and fall back to the default sans-serif font if Roboto doesn't load */
+    /* ... your other styles ... */
+}
+
+.score-container p {
+    font-family: 'Pacifico', cursive; /* This will use the Pacifico font, and fall back to the default cursive font if Pacifico doesn't load */
+    font-size: 24px; /* Adjust size as needed */
+}
