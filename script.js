@@ -28,6 +28,11 @@ function playerSelection(){
 
 function playOneRound(userInput, computerInput){
     let outcome; 
+
+    const container = document.querySelector(".choice");
+    // Clear previous choices
+    container.innerHTML = '';
+    
     if (userInput === "rock"){
         if (computerInput === "rock"){
             console.log("It's a draw! The computer chose rock!")
@@ -68,9 +73,37 @@ function playOneRound(userInput, computerInput){
         }
     }
     updateScore(outcome)
+    displayChoices(userInput,computerInput)
 
     return outcome
 }
+
+function displayChoices(user, computer) {
+    const container = document.querySelector(".choice");
+
+    const divPlayer = document.createElement('div');
+    divPlayer.classList.add('player-choice'); 
+
+    const playerImage = document.createElement('img');
+    divPlayer.textContent = `You chose ${user}`;
+    playerImage.src = `${user}.jpg`;
+    playerImage.alt = `Your choice: ${user}`;
+    playerImage.classList.add('choice-image'); // Apply a CSS class for styling
+    divPlayer.appendChild(playerImage); // Add the image as a child of the div
+
+    
+    container.appendChild(divPlayer);
+    const divComputer = document.createElement('div');
+    divComputer.classList.add('computer-choice'); 
+    divComputer.textContent = `The computer chose ${computer}`;
+    const computerImage = document.createElement('img');
+    computerImage.src = `${computer}.jpg`;
+    computerImage.alt = `Computer's choice: ${computer}`;
+    computerImage.classList.add('choice-image'); // Apply a CSS class for styling
+    container.appendChild(divComputer);
+    divComputer.appendChild(computerImage); // Add the image as a child of the div
+}
+
 
 function updateScore(result) {
     if (result === "win"){
@@ -112,6 +145,10 @@ function resetGame(){
     losses = 0;
     draws = 0;
 
+    const container = document.querySelector(".choice");
+    // Clear previous choices
+    container.innerHTML = '';
+    
     const counter = document.getElementById("counter");
     counter.textContent = `Wins: ${wins} | Losses: ${losses} | Draws:${draws}`;
 

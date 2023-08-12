@@ -62,3 +62,27 @@
     font-family: 'Pacifico', cursive; /* This will use the Pacifico font, and fall back to the default cursive font if Pacifico doesn't load */
     font-size: 24px; /* Adjust size as needed */
 }
+
+.choice {
+    padding-top: 50px;
+    width:100%;
+    display: flex;
+    align-content: space-between;
+}
+
+.player-choice,
+.computer-choice {
+    flex: 1;
+    display: flex; /* Use a flex column layout */
+    flex-direction: column; /* Stack content vertically */
+    align-items: center; /* Center horizontally */
+    justify-content: center; /* Center vertically */
+    margin: 10px;
+    padding: 10px;
+    text-align: center;
+}
+
+.choice-image {
+    width: 100px; /* Adjust the width as needed */
+    height: 100px; /* Adjust the height as needed */
+}
